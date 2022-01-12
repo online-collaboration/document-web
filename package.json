@@ -1,0 +1,9 @@
+{
+  "name": "document-web",
+  "version": "0.1.0",
+  "homepage": "https://github.com/online-collaboration/document-web",
+  "bugs": "https://github.com/online-collaboration/document-web/issues",
+  "repository": "git@github.com:online-collaboration/document-web.git",
+  "license": "Apache-2.0",
+  "private": false
+}
