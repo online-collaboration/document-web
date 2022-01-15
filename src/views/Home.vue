@@ -1,18 +1,52 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <h1>Hello, Honeycomb!</h1>
+    <div class="editor" ref="editorContainer"></div>
 </template>
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue'
+import * as Y from 'yjs'
+import { WebsocketProvider } from 'y-websocket'
+import { QuillBinding } from 'y-quill'
+import Quill from 'quill'
+import QuillCursors from 'quill-cursors'
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+Quill.register('modules/cursors', QuillCursors)
+const ydoc = new Y.Doc()
+const provider = new WebsocketProvider(
+    'wss://demos.yjs.dev',
+    'quill-demo-2',
+    ydoc
+)
+const ytext = ydoc.getText('quill')
+const editorContainer = ref<HTMLDivElement | null>(null)
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+onMounted(() => {
+    if (!editorContainer.value) {
+        return
+    }
+    const editor = new Quill(editorContainer.value, {
+        modules: {
+            cursors: true,
+            toolbar: [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline'],
+                ['image', 'code-block'],
+            ],
+            history: {
+                userOnly: true,
+            },
+        },
+        placeholder: 'Start collaborating...',
+        theme: 'snow', // or 'bubble'
+    })
+    new QuillBinding(ytext, editor, provider.awareness)
+})
 </script>
+<style lang="scss">
+h1 {
+    font-family: 'Comic Sans MS', fantasy;
+}
+.editor {
+    height: 60vh;
+}
+</style>
