@@ -1,40 +1,36 @@
-# 支持多人协作的在线文档、在线表格、IM、脑图编辑系统
+# Honeycomb
 
-我们的愿景：企业级在线协作系统。  
-小微企业可以快速部署使用，自己掌握源码和部署环境，数据绝对安全。  
-中大型企业根据业务场景选择直接部署使用或者在源码基础上快速二次开发。
+[Live Demo](https://honeycomb.chummy.fun/)
 
-## 一期目标：在线协作文档系统
+Honeycomb is an online collaboration solution including notes, spreadsheets, IM, mind maps, and more.
 
-## 一期主要功能：
-1. 可以在线编辑的文档系统，支持基本的编辑功能。
-2. 支持多人协作，基于CRDT算法处理冲突。
-3. 支持历史版本查看。
+Honeycomb is designed to be a enterprise-level solution for online collaboration, which is also fully open source. 
 
-## 相关技术：
-1. [yjs](https://github.com/yjs/yjs)
-2. [quill](https://github.com/quilljs/quill)
+Small and medium enterprises can deploy their collaboration service within a fraction of minutes, with both the
+source code and user data under their control. Large coops or those with ambition can also use Honeycomb as base
+to start building on their own, feel free to fork and get your hands dirty.
 
+## Deploy
 
-## Project setup
+// todo
+
+## Contribution
+
+### project setup
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### development
 ```
-yarn serve
+yarn dev
 ```
 
-### Compiles and minifies for production
+### build
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Thanks to
+1. [yjs](https://github.com/yjs/yjs)
+2. [quill](https://github.com/quilljs/quill)
