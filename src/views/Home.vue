@@ -1,6 +1,8 @@
 <template>
-    <h1>Hello, Honeycomb!</h1>
-    <div class="editor" ref="editorContainer"></div>
+    <div class="playground">
+        <h1>Hello, Honeycomb!</h1>
+        <div class="editor" ref="editorContainer"></div>
+    </div>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
@@ -43,10 +45,28 @@ onMounted(() => {
 })
 </script>
 <style lang="scss">
-h1 {
-    font-family: 'Comic Sans MS', fantasy;
+body {
+    margin: 0;
 }
-.editor {
-    height: 60vh;
+.playground {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 5vw;
+    background-color: lightskyblue;
+
+    h1 {
+        margin-top: 0;
+        font-family: 'Comic Sans MS', fantasy;
+    }
+
+    .ql-toolbar {
+        background-color: #a6c5dc;
+    }
+
+    .editor {
+        background-color: white;
+    }
 }
 </style>
